@@ -1,4 +1,5 @@
 using CastingStars.Data;
+using CastingStars.Data.Seed;
 using CastingStars.Domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,14 @@ builder.Services.AddDbContext<CastingStarsDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<CastingStarsDbContext>();
+    await db.Database.MigrateAsync();
+    await DbSeeder.SeedAsync(db);
+}
 
 if (!app.Environment.IsDevelopment())
 {
