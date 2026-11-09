@@ -2,5 +2,6 @@
   <Folder Name="/src/">
     <Project Path="src/CastingStars.Data/CastingStars.Data.csproj" />
     <Project Path="src/CastingStars.Domain/CastingStars.Domain.csproj" />
+    <Project Path="src/CastingStars.Web/CastingStars.Web.csproj" />
   </Folder>
 </Solution>
