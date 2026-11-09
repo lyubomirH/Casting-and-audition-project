@@ -1,6 +1,5 @@
 ﻿using CastingStars.Data.Entities;
 using CastingStars.Domain;
-using CastingStars.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CastingStars.Data.Seed;
